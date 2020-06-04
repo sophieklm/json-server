@@ -8,9 +8,6 @@ const middlewares = jsonServer.defaults();
 
 dotenv.config();
 
-server.use(middlewares);
-server.use(pause(3000));
-
 isAuthorized = (req) => {
   return req.headers.authorization === "Bearer " + process.env.API_KEY;
 };
@@ -18,6 +15,13 @@ isAuthorized = (req) => {
 randomNumber = () => {
   return Math.floor(Math.random() * 10);
 };
+
+delay = () => {
+  return Math.floor(Math.random() * 4000);
+};
+
+server.use(middlewares);
+server.use(pause(delay()));
 
 server.use((req, res, next) => {
   if (randomNumber() === 5) {
