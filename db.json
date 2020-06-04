@@ -1,0 +1,5 @@
+{
+  "stock": {
+    "stock": [{ "id": 1, "name": "name", "type": "type", "units_available": 3 }]
+  }
+}
