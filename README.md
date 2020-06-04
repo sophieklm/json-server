@@ -14,8 +14,6 @@ Requires an authentication header to be set:
 Authorization: "Bearer abc123"
 ```
 
-This can be done with a browser extension such as ModHeader
-
 ### Request
 
 A request to:

@@ -1,12 +1,15 @@
 const jsonServer = require("json-server");
 const dotenv = require("dotenv");
+const pause = require("connect-pause");
+const generate = require("./generate");
 const server = jsonServer.create();
-const router = jsonServer.router("db.json");
+const router = jsonServer.router(generate());
 const middlewares = jsonServer.defaults();
 
 dotenv.config();
 
 server.use(middlewares);
+server.use(pause(3000));
 
 isAuthorized = (req) => {
   return req.headers.authorization === "Bearer " + process.env.API_KEY;
