@@ -2,6 +2,8 @@
 
 Uses json-server to get mock stock data.
 
+Includes delay and random error simulation.
+
 ```
 cp .env.example .env
 npm install
@@ -29,10 +31,11 @@ Returns:
   "stock": [
     {
       "id": 1,
-      "name": "name",
-      "type": "type",
-      "units_available": 3
-    }
+      "name": "Pants",
+      "type": "Clothing",
+      "units_available": 14
+    },
+    ...
   ]
 }
 ```
