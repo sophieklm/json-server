@@ -15,8 +15,14 @@ isAuthorized = (req) => {
   return req.headers.authorization === "Bearer " + process.env.API_KEY;
 };
 
+randomNumber = () => {
+  return Math.floor(Math.random() * 10);
+};
+
 server.use((req, res, next) => {
-  if (isAuthorized(req)) {
+  if (randomNumber() === 5) {
+    res.sendStatus(500);
+  } else if (isAuthorized(req)) {
     next();
   } else {
     res.sendStatus(401);
